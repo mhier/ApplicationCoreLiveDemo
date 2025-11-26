@@ -1,0 +1,97 @@
+<logicalNameMap>
+
+  <module name="Clocks">
+
+    <redirectedRegister name="mux">
+      <targetDevice>MyAMC</targetDevice>
+      <targetRegister>BSP.CLK_MUX</targetRegister>
+    </redirectedRegister>
+
+    <redirectedRegister name="frequencies">
+      <targetDevice>MyAMC</targetDevice>
+      <targetRegister>BSP.CLK_FREQ</targetRegister>
+    </redirectedRegister>
+  
+  </module>
+
+  <module name="MGT">
+    <module name="PLL">
+
+      <redirectedBit name="done">
+        <targetDevice>MyAMC</targetDevice>
+        <targetRegister>BSP.MGT_PLL_STATUS</targetRegister>
+        <targetBit>0</targetBit>
+      </redirectedBit>
+
+      <redirectedBit name="busy">
+        <targetDevice>MyAMC</targetDevice>
+        <targetRegister>BSP.MGT_PLL_STATUS</targetRegister>
+        <targetBit>1</targetBit>
+      </redirectedBit>
+
+      <redirectedBit name="interrupt">
+        <targetDevice>MyAMC</targetDevice>
+        <targetRegister>BSP.MGT_PLL_STATUS</targetRegister>
+        <targetBit>2</targetBit>
+      </redirectedBit>
+
+      <redirectedBit name="startConfig">
+        <targetDevice>MyAMC</targetDevice>
+        <targetRegister>BSP.MGT_PLL_CONTROL</targetRegister>
+        <targetBit>0</targetBit>
+      </redirectedBit>
+
+      <redirectedBit name="resetFsm">
+        <targetDevice>MyAMC</targetDevice>
+        <targetRegister>BSP.MGT_PLL_CONTROL</targetRegister>
+        <targetBit>1</targetBit>
+      </redirectedBit>
+
+      <redirectedBit name="clearInterrupt">
+        <targetDevice>MyAMC</targetDevice>
+        <targetRegister>BSP.MGT_PLL_CONTROL</targetRegister>
+        <targetBit>2</targetBit>
+      </redirectedBit>
+      
+    </module>
+  </module>
+
+  <redirectedRegister name="temperature">
+    <targetDevice>MyAMC</targetDevice>
+    <targetRegister>RTM.ADC_TEMP</targetRegister>
+    <plugin name="math">
+      <!-- exprtk math library: https://www.partow.net/programming/exprtk/index.html -->
+      <parameter name="formula">
+        var U := 3.3 * x / 1023;
+        var R := (U * 100000) / (3.3 - U);
+        1 / ( 1/298.15 + 1/4072 * log(R/100000) ) - 273.15
+      </parameter>
+      <!-- Note: The formula is not correct for the actual hardware! -->
+    </plugin>
+  </redirectedRegister>
+
+  <redirectedRegister name="LO">
+    <targetDevice>MyAMC</targetDevice>
+    <targetRegister>RTM.ADC_LO</targetRegister>
+  </redirectedRegister>
+
+  <redirectedRegister name="interrupt">
+    <targetDevice>MyAMC</targetDevice>
+    <targetRegister>APP.ISR.DAQ</targetRegister>
+  </redirectedRegister>
+
+  <module name="DacTable">
+
+    <redirectedRegister name="I">
+      <targetDevice>MyAMC</targetDevice>
+      <targetRegister>APP.AREA_DAC_I</targetRegister>
+    </redirectedRegister>
+
+    <redirectedRegister name="Q">
+      <targetDevice>MyAMC</targetDevice>
+      <targetRegister>APP.AREA_DAC_Q</targetRegister>
+    </redirectedRegister>
+
+  </module>
+
+</logicalNameMap>

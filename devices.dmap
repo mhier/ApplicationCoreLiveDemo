@@ -1,4 +1,3 @@
-oven     sdm://./pci:mtcadummys1               oven.map
-oven0    sdm://./pci:mtcadummys0               oven.map
-oven1    sdm://./pci:mtcadummys1               oven.map
-timer    sdm://./TimerDummy:0                  none
+MyAMC       (sharedMemoryDummy:xdma/slot6?map=demo.mapp)
+
+MyAMClmap   (logicalNameMap?map=amc.xlmap)

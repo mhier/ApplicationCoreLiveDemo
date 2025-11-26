@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csa:uamapping xmlns:csa="https://github.com/ChimeraTK/ControlSystemAdapter-OPC-UA-Adapter">
+  <config rootFolder="root" description="Live demo for ApplicationCore">
+    <server applicationName="Live Demo" port="16664"/>
+  </config>
+</csa:uamapping>

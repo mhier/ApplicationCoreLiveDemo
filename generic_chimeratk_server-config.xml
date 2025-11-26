@@ -1,0 +1,31 @@
+<configuration>
+  <variable name="devices" type="string">
+    <value i="0" v="MyAMClmap"/>
+  </variable>
+  <module name="MyAMClmap">
+    <variable name="triggerPath" type="string" value="/msTimer/tick" />
+    <!-- <variable name="triggerPath" type="string" value="/interrupt" /> -->
+    <variable name="pathInDevice" type="string" value="" />
+    <variable name="initScript" type="string" value="" />
+    <!-- <variable name="initScript" type="string" value="deviceInit.py" /> -->
+    <variable name="pathInCS" type="string" value="/" />
+  </module>
+  <variable name="periodicTimers" type="string">
+    <value i="0"  v="msTimer"/>
+  </variable>
+  
+  <module name="msTimer">
+    <variable name="period" type="uint32" value="100" />
+  </module>
+
+  
+  <module name="PythonModules">
+  <!--  <module name="DemoModule">
+      <variable name="path" type="string" value="demoModule" />
+    </module> -->
+  <!--  <module name="DemoModule2">
+      <variable name="path" type="string" value="demoModule2" />
+    </module> -->
+  </module>
+  
+</configuration>

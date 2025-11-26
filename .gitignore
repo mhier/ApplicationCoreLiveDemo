@@ -19,3 +19,5 @@ build
 # If they are generally useful consider adding them to the 
 # project-template and the merge them in.
 ######################
+__pycache__/
+generic_chimeratk_server.persist
